@@ -59,7 +59,7 @@ const changeToSeen = async (slug) => {
     })
 }
 
-const video = ({ video }) => {
+const Video = ({ video }) => {
     const [watching, setWatching] = useState(false)
 
     return (
@@ -89,4 +89,4 @@ const video = ({ video }) => {
     )
 }
 
-export default video
+export default Video
