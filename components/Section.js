@@ -1,20 +1,22 @@
 import Card from './Card'
-// import Link from 'next/Link'
+import Link from 'next/link'
 
 
-const Section = ({genre, videos }) => {
+const Section = ({ genre, videos }) => {
     return (
         <div className="section">
             <h3>{genre}</h3>
             <div>
                 {videos.map(video => (
-                    <a key={video.id} href={`/video/${video.slug}`}>
-                        <Card thumbnail={video.thumbnail}/>
-                    </a>
+                    <Link href={`/video/${video.slug}`} key={video.id} >
+                        <a key={video.id} >
+                            <Card thumbnail={video.thumbnail} />
+                        </a>
+                    </Link>
                 ))}
             </div>
         </div>
-        
+
     )
 }
 

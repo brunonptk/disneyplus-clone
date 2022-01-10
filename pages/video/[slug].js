@@ -1,6 +1,6 @@
 import { gql, GraphQLClient } from 'graphql-request'
 import { useState } from 'react';
-import Link from 'next/Link'
+import Link from 'next/link'
 
 export const getServerSideProps = async (pageContext) => {
     const url = process.env.ENDPOINT
@@ -69,7 +69,7 @@ const Video = ({ video }) => {
             {!watching &&<div className="info">
                 <p>{video.tags.join(', ')}</p>
                 <p>{video.description}</p>
-                <Link href="/"><p>go back</p></Link>
+                <Link href="/"><a>go back</a></Link>
                 <button
                     className="video-overlay"
                     onClick={() => {

@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from 'graphql-request'
-import Link from 'next/Link'
+import Link from 'next/link'
 import Image from 'next/Image'
 import video from './video/[slug]'
 import Section from "../components/Section"
@@ -81,6 +81,15 @@ const Home = ({ videos, account }) => {
     return videos.filter(video => video.seen == false || video.seen == null)
   }
 
+  const CategoryLogo = ({ className, id, src }) => (
+    <>
+      <a><div className={className} id={id}>
+        <Image src={src} />
+      </div>
+      </a>
+    </>
+  )
+
   return (
     <>
       <NavBar account={account} />
@@ -91,25 +100,24 @@ const Home = ({ videos, account }) => {
         </div>
 
         <div className="video-feed">
-          <Link href="disney"><div className="franchise" id="disney">
-            <Image src={disneyLogo} />
-          </div>
+          <Link href="disney">
+            <CategoryLogo className="franchise" id="disney" src={disneyLogo} />
           </Link>
-          <Link href="marvel"><div className="franchise" id="marvel">
-            <Image src={marvelLogo} />
-          </div></Link>
-          <Link href="drama"><div className="franchise" id="drama">
-            <Image src={dramaLogo} />
-          </div></Link>
-          <Link href="violence"><div className="franchise" id="violence">
-            <Image src={violenceLogo} />
-          </div></Link>
-          <Link href="classic"><div className="franchise" id="classic">
-            <Image src={classicLogo} />
-          </div></Link>
-          <Link href="thriller"><div className="franchise" id="thriller">
-            <Image src={thrillerLogo} />
-          </div></Link>
+          <Link href="marvel">
+            <CategoryLogo className="franchise" id="marvel" src={marvelLogo} />
+          </Link>
+          <Link href="drama">
+            <CategoryLogo className="franchise" id="drama" src={dramaLogo} />
+          </Link>
+          <Link href="violence">
+            <CategoryLogo className="franchise" id="violence" src={violenceLogo} />
+          </Link>
+          <Link href="classic">
+            <CategoryLogo className="franchise" id="classic" src={classicLogo} />
+          </Link>
+          <Link href="thriller">
+            <CategoryLogo className="franchise" id="thriller" src={thrillerLogo} />
+          </Link>
         </div>
         <Section genre={'Recommended for you'} videos={unSeenVideos(videos)} />
         <Section id="drama" genre={'Drama'} videos={filterVideos(videos, 'drama')} />
