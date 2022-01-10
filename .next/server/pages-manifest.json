@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/video/[slug]": "pages/video/[slug].js",
-  "/api/changeToSeen": "pages/api/changeToSeen.js"
+  "/video/[slug]": "pages/video/[slug].js"
 }
